@@ -17,5 +17,5 @@ func doGreet(client pb.GreetServiceClient) {
 		log.Fatalf("Error while calling Greet RPC: %v", err)
 	}
 
-	log.Printf("Greeting: %s/n", res.Result)
+	log.Printf("Greeting: %s", res.Result)
 }
