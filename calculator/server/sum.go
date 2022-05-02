@@ -7,9 +7,9 @@ import (
 	pb "github.com/Edu-Maturana/grpc-go-course/calculator/proto"
 )
 
-func (s *Server) Greet(ctx context.Context, in *pb.CalculatorRequest) (*pb.CalculatorResponse, error) {
-	log.Printf("Greet function was invoked with %v", in)
+func (s *Server) Sum(ctx context.Context, in *pb.CalculatorRequest) (*pb.CalculatorResponse, error) {
+	log.Print("Sum function was invoked")
 	return &pb.CalculatorResponse{
-		Value: in.Arguments[0] + in.Arguments[1],
+		Result: in.FirstValue + in.SecondValue,
 	}, nil
 }
