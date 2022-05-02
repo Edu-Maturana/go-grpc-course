@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package="github.com/Edu-Maturana/grpc-go-course/calculator/proto";
+
+message CalculatorRequest {
+    repeated int64 arguments = 1;
+}
+
+message CalculatorResponse {
+    int64 value = 1;
+}
+
+service SumService {
+    rpc Sum(CalculatorRequest) returns (CalculatorResponse) {}
+}
