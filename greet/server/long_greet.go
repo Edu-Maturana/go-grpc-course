@@ -8,7 +8,7 @@ import (
 	pb "github.com/Edu-Maturana/grpc-go-course/greet/proto"
 )
 
-func (s *server) LongGreet(stream GreetService_LongGreetServer) error {
+func (s *Server) LongGreet(stream pb.GreetService_LongGreetServer) error {
 	log.Print("LongGreet function was invoked with success")
 
 	res := ""
@@ -25,6 +25,8 @@ func (s *server) LongGreet(stream GreetService_LongGreetServer) error {
 		if err != nil {
 			log.Fatalf("Error while reading client stream: %v", err)
 		}
+
+		log.Printf("Received: %v", req)
 
 		res += fmt.Sprintf("Hello %s! ", req.FirstName)
 	}
